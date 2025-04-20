@@ -14,7 +14,7 @@ except ImportError:
 
 st.set_page_config(page_title="Crawlability Checker", layout="wide")
 
-st.title("🌐 Website Crawlability Checker")
+st.title("🌐 MSA Website Crawlability Checker")
 st.markdown("""
 Paste a list of websites (one per line) below.
 The app will:

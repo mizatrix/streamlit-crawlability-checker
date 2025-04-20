@@ -82,14 +82,15 @@ def check_site(url, user_agent='*', timeout=5):
         rss_found = "rss" in content.lower() or "feed" in content.lower()
         js_heavy = any(k in content.lower() for k in ["webpack", "window.__INITIAL_STATE__", "react", "vue", "next.js"])
 
-        try:
-            reppy_data = Robots.fetch(robots_url)
-            if not sitemap_matches and reppy_data.sitemaps:
-                sitemap_info = ', '.join(reppy_data.sitemaps)
-            if not crawl_allowed and reppy_data.allowed(url, user_agent):
-                crawl_allowed = True
-        except:
-            pass
+        # ❌ Removed reppy.robots to make the app work on Streamlit Cloud
+        # try:
+        #     reppy_data = Robots.fetch(robots_url)
+        #     if not sitemap_matches and reppy_data.sitemaps:
+        #         sitemap_info = ', '.join(reppy_data.sitemaps)
+        #     if not crawl_allowed and reppy_data.allowed(url, user_agent):
+        #         crawl_allowed = True
+        # except:
+        #     pass
 
         api_url = get_known_api(domain)
 

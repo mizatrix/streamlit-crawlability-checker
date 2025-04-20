@@ -21,7 +21,7 @@ The app will:
 - Check if each website can be crawled normally
 - Detect if it provides a sitemap
 - Recommend the best method for crawling
-- Suggest available crawling methods (HTML, Sitemap, API, RSS)
+- Suggest available crawling methods (HTML, Sitemap, API, RSS, Dynamic)
 """)
 
 # User input area

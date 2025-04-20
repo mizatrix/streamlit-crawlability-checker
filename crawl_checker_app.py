@@ -5,7 +5,7 @@ from urllib.parse import urlparse
 import pandas as pd
 import re
 from concurrent.futures import ThreadPoolExecutor, as_completed
-from reppy.robots import Robots
+#from reppy.robots import Robots
 # Try importing html escape depending on Python version
 try:
     import html

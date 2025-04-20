@@ -5,14 +5,14 @@ from urllib.parse import urlparse
 import pandas as pd
 import re
 from concurrent.futures import ThreadPoolExecutor, as_completed
-
+from reppy.robots import Robots
 # Try importing html escape depending on Python version
 try:
     import html
 except ImportError:
     import cgi as html  # fallback for older Python versions
 
-from reppy.robots import Robots
+
 
 st.set_page_config(page_title="Crawlability Checker", layout="wide")
 

@@ -1,4 +1,4 @@
 streamlit
 pandas
 requests
-reppy==0.4.14
+reppy==0.4.3

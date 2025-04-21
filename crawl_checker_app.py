@@ -22,7 +22,7 @@ The app will:
 - Detect if it provides a sitemap
 - Recommend the best method for crawling
 - Suggest available crawling methods (HTML, Sitemap, API, RSS, Dynamic)
--Smart robots.txt Fetching (Even if Blocked)
+- Smart robots.txt Fetching (Even if Blocked)
 """)
 
 # User input area

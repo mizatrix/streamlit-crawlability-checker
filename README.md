@@ -5,6 +5,7 @@ A Streamlit web app that checks whether websites can be crawled by bots and sear
 ## 🚀 Features
 
 - ✅ Detects if crawling is allowed via `robots.txt`
+- 🧠 Uses a browser-like User-Agent to access `robots.txt` even from sites that block bots
 - 🗺️ Checks for available sitemaps
 - 🧠 Identifies JS-heavy websites
 - 📰 Checks for RSS feed availability
@@ -12,12 +13,12 @@ A Streamlit web app that checks whether websites can be crawled by bots and sear
 - 📊 Generates a crawlability score with visual feedback
 - 📥 Export results as CSV
 
-
 ## 🧑‍💻 Technologies Used
 
 - [Streamlit](https://streamlit.io/)
 - [Python](https://www.python.org/)
-- `reppy`, `requests`, `concurrent.futures`, and other standard libraries
+- `requests`, `concurrent.futures`, and standard libraries like `re`, `html`, `urllib`
+- **User-Agent spoofing** to bypass bot protection for reading `robots.txt`
 
 ## 📦 Installation
 

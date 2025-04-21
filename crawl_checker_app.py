@@ -1,4 +1,5 @@
 import streamlit as st
+import time
 import requests
 from urllib.robotparser import RobotFileParser
 from urllib.parse import urlparse
@@ -6,6 +7,15 @@ import pandas as pd
 import re
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
+def safe_get(url, headers, timeout=5, retries=3):
+    for i in range(retries):
+        try:
+            return requests.get(url, headers=headers, timeout=timeout)
+        except Exception as e:
+            if i < retries - 1:
+                time.sleep(1)  # wait before retrying
+            else:
+                raise e  # if final attempt fails, raise the error
 # Try importing html escape depending on Python version
 try:
     import html
@@ -49,7 +59,9 @@ def check_site(url, user_agent='*', timeout=5):
         headers = {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"}
 
-        response = requests.get(robots_url, headers=headers, timeout=timeout)
+        #response = requests.get(robots_url, headers=headers, timeout=timeout)
+        response = safe_get(robots_url, headers, timeout=timeout)
+
         if response.status_code != 200:
             return {
                 "Website": url,

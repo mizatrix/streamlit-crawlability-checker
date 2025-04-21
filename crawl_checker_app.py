@@ -15,6 +15,7 @@ except ImportError:
 st.set_page_config(page_title="Crawlability Checker", layout="wide")
 
 st.title("🌐 MSA Website Crawlability Checker")
+st.info("✅ This tool uses a browser-like identity to access `robots.txt` — even on websites that block bots.")
 st.markdown("""
 Paste a list of websites (one per line) below.
 The app will:

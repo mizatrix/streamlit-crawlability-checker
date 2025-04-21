@@ -44,7 +44,12 @@ def check_site(url, user_agent='*', timeout=5):
         base_url = f"{parsed_url.scheme}://{parsed_url.netloc}"
         robots_url = f"{base_url}/robots.txt"
 
-        response = requests.get(robots_url, timeout=timeout)
+        #response = requests.get(robots_url, timeout=timeout)
+        headers = {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+        }
+        response = requests.get(robots_url, headers=headers, timeout=timeout)
+
         if response.status_code != 200:
             return {
                 "Website": url,

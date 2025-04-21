@@ -52,11 +52,11 @@ def check_site(url, user_agent='*', timeout=5):
         }
         response = requests.get(robots_url, headers=headers, timeout=timeout)
 
-        if response.status_code != 200:
+        if response.status_code != 200 or len(response.text.strip()) < 20:
             return {
                 "Website": url,
-                "Crawling Allowed": f"❌ No (HTTP {response.status_code})",
-                "Sitemap Found": "Unknown",
+                "Crawling Allowed": f"❌ No (Blocked or invalid response)",
+                "Sitemap Found": "❌ Not detected (site may block bots)",
                 "Known API": "Unknown",
                 "Best Access Method": "❌ No Access",
                 "All Crawling Methods Available": "Unknown",
@@ -65,7 +65,7 @@ def check_site(url, user_agent='*', timeout=5):
                 "RSS Feed Available": "Unknown",
                 "Allowed Paths": "Unknown",
                 "Disallowed Paths": "Unknown",
-                "Advanced Crawling Suggestion": "Use headless browser like Playwright or Selenium",
+                "Advanced Crawling Suggestion": "🧱 This site may block bots — try Selenium or Playwright for real browser crawling.",
                 "Sitemap Preview": "N/A",
                 "Crawlability Score": 0,
                 "Suggested Use": "🔴 Not Recommended"
